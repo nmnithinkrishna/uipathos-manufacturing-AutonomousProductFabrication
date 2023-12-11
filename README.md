@@ -4,11 +4,14 @@ Experience the future of manufacturing with our open-source project, Autonomous 
 
 ## As-Is
 
-![AsIs_Manufacturing drawio](https://github.com/nmnithinkrishna/uipathos-manufacturing-AutonomousProductFabrication/assets/26877977/8cd57913-06c1-4eee-b7bd-7b23a4f6985d)
+![image](https://github.com/nmnithinkrishna/uipathos-manufacturing-AutonomousProductFabrication/assets/26877977/f5a966ca-a5a7-4e8e-b3e0-23363556ab15)
+
 
 ## To-Be
 
-![AsIs_Manufacturing-Page-2](https://github.com/nmnithinkrishna/uipathos-manufacturing-AutonomousProductFabrication/assets/26877977/31da8b53-418b-45c7-b602-2d819a1e5f5b)
+![image](https://github.com/nmnithinkrishna/uipathos-manufacturing-AutonomousProductFabrication/assets/26877977/c56dbfea-d349-4f6d-a7f5-eacf64f6a617)
+
+
 
 👔 **Code of Conduct**
 ------
