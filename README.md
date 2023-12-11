@@ -27,8 +27,3 @@ we believe in a collaborative and respectful environment where everyone's contri
 * **Merging to Main:** After approval, your changes will be merged into the main branch, making them a part of our project's core codebase.
 
 🧡 We welcome contributions from all our collaborators and appreciate your commitment to maintaining the quality and integrity of our project. Thank you for helping us create a positive and inclusive community.
-
-
-Merging to Main: After approval, your changes will be merged into the main branch, making them a part of our project's core codebase.
-
-🧡 We welcome contributions from all our collaborators and appreciate your commitment to maintaining the quality and integrity of our project. Thank you for helping us create a positive and inclusive community.
