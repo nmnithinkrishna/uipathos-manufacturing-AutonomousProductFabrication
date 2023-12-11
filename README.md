@@ -2,14 +2,15 @@
 
 Experience the future of manufacturing with our open-source project, Autonomous Product Fabrication, powered by UiPath automation and cutting-edge AI technology.
 
+
 ## As-Is
 
-![image](https://github.com/nmnithinkrishna/uipathos-manufacturing-AutonomousProductFabrication/assets/26877977/f5a966ca-a5a7-4e8e-b3e0-23363556ab15)
+![image](https://github.com/nmnithinkrishna/uipathos-manufacturing-AutonomousProductFabrication/assets/26877977/71222eb0-3fea-450e-a146-a24eec91af3f)
 
 
 ## To-Be
 
-![image](https://github.com/nmnithinkrishna/uipathos-manufacturing-AutonomousProductFabrication/assets/26877977/baf84ef5-21e0-4d8d-8b8a-32f2ade00658)
+![image](https://github.com/nmnithinkrishna/uipathos-manufacturing-AutonomousProductFabrication/assets/26877977/300edc41-1ae0-4ae2-8c3a-1dedde4bb24c)
 
 
 
