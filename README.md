@@ -9,7 +9,7 @@ Experience the future of manufacturing with our open-source project, Autonomous 
 
 ## To-Be
 
-![image](https://github.com/nmnithinkrishna/uipathos-manufacturing-AutonomousProductFabrication/assets/26877977/c56dbfea-d349-4f6d-a7f5-eacf64f6a617)
+![image](https://github.com/nmnithinkrishna/uipathos-manufacturing-AutonomousProductFabrication/assets/26877977/baf84ef5-21e0-4d8d-8b8a-32f2ade00658)
 
 
 
