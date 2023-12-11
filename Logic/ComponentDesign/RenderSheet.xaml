@@ -1,0 +1,737 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CreateScript" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sma="clr-namespace:System.Management.Automation;assembly=System.Management.Automation" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uibi="http://schemas.uipath.com/workflow/infrastructure/baf/uibi" xmlns:uiisi="http://schemas.uipath.com/workflow/infrastructure/is/uiisi" xmlns:uoia="clr-namespace:UiPath.OpenAI.IntegrationService.Activities;assembly=UiPath.OpenAI.IntegrationService.Activities" xmlns:uoic="clr-namespace:UiPath.OpenAI.IntegrationService.Client;assembly=UiPath.OpenAI.IntegrationService" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_dict_AreaParams" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_dict_SheetParams" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,993</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CreateScript_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Entity</x:String>
+      <x:String>UiPath.IntegrationService.Infrastructure.Descriptor</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Enums</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Telemetry</x:String>
+      <x:String>UiPath.BAF.Infrastructure</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Connection</x:String>
+      <x:String>UiPath.OpenAI.IntegrationService.Activities</x:String>
+      <x:String>UiPath.IntegrationCore.Activities</x:String>
+      <x:String>UiPath.BAF.Activities</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Management.Automation</x:String>
+      <x:String>System.Dynamic</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.BAF.Infrastructure</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Infrastructure</AssemblyReference>
+      <AssemblyReference>UiPath.OpenAI.IntegrationService.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CreateScript" sap:VirtualizedContainerService.HintSize="496,928" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="GPT_Script" />
+      <Variable x:TypeArguments="x:String" Default="[&quot;C:\Users\nithinkrishna.nm\Desktop\Output\SCAD\PerforatedSheet_&quot; + Now.ToString(&quot;ddMMyyyHHmmss&quot;) + &quot;.scad&quot;]" Name="SCAD_File" />
+      <Variable x:TypeArguments="x:String" Default="[SCAD_File.Replace(&quot;.scad&quot;,&quot;.csg&quot;)]" Name="CSG_PrintFile" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Configuring the perforated sheet design parameters...&quot;]" />
+    <uoia:GenerateChatCompletion ActivityInstanceId="27b39688-c75f-47b9-9a19-6a77cbd18ee3" BindingsVersion="2.1" BusinessEntityName="Generate Chat Completion" ConfiguredBusinessEntity="generateChatCompletion" ConnectionId="30b91c08-d090-4659-a239-f49b394efb26" Connector="uipath-openai-openai" CrudOperation="Create" DesignConnectionEnabled="True" DisplayName="Generate Chat Completion" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="GenerateChatCompletion_1">
+      <uoia:GenerateChatCompletion.BusinessEntity>
+        <uibi:BusinessEntity Name="generateChatCompletion">
+          <uibi:BusinessEntity.AllFields>
+            <scg:List x:TypeArguments="uibi:EntityField" Capacity="15">
+              <uiisi:OperationEntityField x:TypeArguments="uoic:GenerateChatCompletion" ArgumentDirection="In" ArgumentType="uoic:GenerateChatCompletion" DataType="GenerateChatCompletion" Description="The request data in JSON format for the chat completion" DisplayName="Completion Request" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="True" IsParameter="True" IsPriority="False" IsSelected="False" Location="Undefined" Name="body" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="uoic:GenerateChatCompletion" x:Name="__ReferenceID28" ArgumentDirection="Out" ArgumentType="uoic:GenerateChatCompletion" DataType="GenerateChatCompletion" Description="The Generate Chat Completion object returned." DisplayName="Response" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="Response" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPermanentlyHidden">False</x:Boolean>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID15" ArgumentDirection="In" ArgumentType="x:String" DataType="String" DefaultValue="Write an email to a new sales lead" Description="The prompt to use for the chat completion(s) generation" DisplayName="Prompt" FormDataType="ExpressionTextBox" InArgumentValue="[string.Format(&quot;Create an OpenSCAD script to generate perforated sheet with sheet params {0} and area params {1}&quot;, Newtonsoft.Json.JsonConvert.SerializeObject(in_dict_SheetParams), Newtonsoft.Json.JsonConvert.SerializeObject(in_dict_AreaParams))]" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="True" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.prompt" Order="1" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
+                  <InArgument x:TypeArguments="x:String">[string.Format("Create an OpenSCAD script to generate perforated sheet with sheet params {0} and area params {1}", Newtonsoft.Json.JsonConvert.SerializeObject(in_dict_SheetParams), Newtonsoft.Json.JsonConvert.SerializeObject(in_dict_AreaParams))]</InArgument>
+                </uiisi:OperationEntityField.ArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+                <uiisi:OperationEntityField.Value>
+                  <VisualBasicValue x:TypeArguments="x:String">[string.Format("Create an OpenSCAD script to generate perforated sheet with sheet params {0} and area params {1}", Newtonsoft.Json.JsonConvert.SerializeObject(in_dict_SheetParams), Newtonsoft.Json.JsonConvert.SerializeObject(in_dict_AreaParams))]</VisualBasicValue>
+                </uiisi:OperationEntityField.Value>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID16" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Instructions guide the AI to respond in a way that matches your intent. Defaults to null." DisplayName="Instruction" FormDataType="ExpressionTextBox" InArgumentValue="[&quot;Please give the same static constant code below without any change&#xA;&#xA;// Sheet Parameters&#xA;sheet_width = 24;&#xA;sheet_height = 24;&#xA;o_sheet_width = sheet_width;&#xA;o_sheet_height = sheet_height;&#xA;hole_diameter = 1.27;&#xA;hole_spacing = 3;&#xA;outline_thickness = 1;&#xA;&#xA;//Area Parameters&#xA;area_width = 130;&#xA;area_height = 86;&#xA;&#xA;// Reusable core logic function to create a perforated sheet hole&#xA;module perforatedSheet_hole() {&#xA;    for (x = [0:hole_spacing:sheet_width]) {&#xA;        for (y = [0:hole_spacing:sheet_height]) {&#xA;            translate([x, y]) {&#xA;                color(&quot;&quot;black&quot;&quot;) {&#xA;                    circle(hole_diameter/2);&#xA;                }&#xA;            }&#xA;        }&#xA;    }&#xA;}&#xA;&#xA;// Reusable core logic function to create a perforated sheet surface&#xA;module perforatedSheet_surface(x, y, sheet_width, sheet_height) {&#xA;    translate([o_sheet_width*x, o_sheet_height*y, 0]){&#xA;    difference() {&#xA;        // Create a sheet outline&#xA;        echo(sheet_width, sheet_height);&#xA;        square([sheet_width, sheet_height]);&#xA;        &#xA;        // Punch holes into the sheet&#xA;        color(&quot;&quot;grey&quot;&quot;) {&#xA;            perforatedSheet_hole();&#xA;        }&#xA;    }&#xA;}&#xA;}&#xA;&#xA;//Main driver&#xA;noOfSheets_x = ceil(area_width/sheet_width);&#xA;noOfSheets_y = ceil(area_height/sheet_height); &#xA;&#xA;echo(noOfSheets_x);&#xA;echo(noOfSheets_y);&#xA;&#xA;//Handling that extra row&#xA;floor_noOfSheets_x = floor(area_width/sheet_width);&#xA;lastSheetPercentage_x = floor(((area_width/sheet_width)%floor_noOfSheets_x)*100);&#xA;echo(lastSheetPercentage_x);&#xA;&#xA;floor_noOfSheets_y = floor(area_height/sheet_height);&#xA;lastSheetPercentage_y = floor(((area_height/sheet_height)%floor_noOfSheets_y)*100);&#xA;echo(lastSheetPercentage_y);&#xA;&#xA;for (x = [0:1:noOfSheets_x-1]) {&#xA;    if(x&lt;noOfSheets_x-1){&#xA;        echo(&quot;&quot;Top iteration x - &quot;&quot;);&#xA;        for (y = [0:1:noOfSheets_y-1]) {&#xA;            if(y&lt;noOfSheets_y-1){&#xA;                perforatedSheet_surface(x, y, sheet_width, sheet_height);&#xA;            }&#xA;            else{&#xA;                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);&#xA;                echo(&quot;&quot;Last iteration y - &quot;&quot;, new_sheetHeight);&#xA;                if(new_sheetHeight &gt; 0){&#xA;                    perforatedSheet_surface(x, y, sheet_width, new_sheetHeight);&#xA;                }&#xA;                else{&#xA;                    perforatedSheet_surface(x, y, sheet_width, sheet_height);&#xA;                }&#xA;            }&#xA;    }&#xA;    }&#xA;    else{&#xA;        new_sheetWidth = floor(o_sheet_width * lastSheetPercentage_x / 100);&#xA;        echo(&quot;&quot;Last iteration x - &quot;&quot;, new_sheetWidth);&#xA;        if(new_sheetWidth &gt; 0){&#xA;            for (y = [0:1:noOfSheets_y-1]) {&#xA;            if(y&lt;noOfSheets_y-1){&#xA;                perforatedSheet_surface(x, y, new_sheetWidth, sheet_height);&#xA;            }&#xA;            else{&#xA;                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);&#xA;                echo(&quot;&quot;Last iteration y - &quot;&quot;, new_sheetHeight);&#xA;                if(new_sheetHeight &gt; 0){&#xA;                    perforatedSheet_surface(x, y, new_sheetWidth, new_sheetHeight);&#xA;                }&#xA;                else{&#xA;                    perforatedSheet_surface(x, y, new_sheetWidth, sheet_height);&#xA;                }&#xA;            }&#xA;    }&#xA;        }&#xA;        else{&#xA;            for (y = [0:1:noOfSheets_y-1]) {&#xA;            if(y&lt;noOfSheets_y-1){&#xA;                perforatedSheet_surface(x, y, sheet_width, sheet_height);&#xA;            }&#xA;            else{&#xA;                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);&#xA;                echo(&quot;&quot;Last iteration y - &quot;&quot;, new_sheetHeight);&#xA;                if(new_sheetHeight &gt; 0){&#xA;                    perforatedSheet_surface(x, y, sheet_width, new_sheetHeight);&#xA;                }&#xA;                else{&#xA;                    perforatedSheet_surface(x, y, sheet_width, sheet_height);&#xA;                }&#xA;            }&#xA;    }&#xA;        }&#xA;    }&#xA;}&#xA;&quot;]" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.instruction" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
+                  <InArgument x:TypeArguments="x:String" xml:space="preserve">["Please give the same static constant code below without any change
+
+// Sheet Parameters
+sheet_width = 24;
+sheet_height = 24;
+o_sheet_width = sheet_width;
+o_sheet_height = sheet_height;
+hole_diameter = 1.27;
+hole_spacing = 3;
+outline_thickness = 1;
+
+//Area Parameters
+area_width = 130;
+area_height = 86;
+
+// Reusable core logic function to create a perforated sheet hole
+module perforatedSheet_hole() {
+    for (x = [0:hole_spacing:sheet_width]) {
+        for (y = [0:hole_spacing:sheet_height]) {
+            translate([x, y]) {
+                color(""black"") {
+                    circle(hole_diameter/2);
+                }
+            }
+        }
+    }
+}
+
+// Reusable core logic function to create a perforated sheet surface
+module perforatedSheet_surface(x, y, sheet_width, sheet_height) {
+    translate([o_sheet_width*x, o_sheet_height*y, 0]){
+    difference() {
+        // Create a sheet outline
+        echo(sheet_width, sheet_height);
+        square([sheet_width, sheet_height]);
+        
+        // Punch holes into the sheet
+        color(""grey"") {
+            perforatedSheet_hole();
+        }
+    }
+}
+}
+
+//Main driver
+noOfSheets_x = ceil(area_width/sheet_width);
+noOfSheets_y = ceil(area_height/sheet_height); 
+
+echo(noOfSheets_x);
+echo(noOfSheets_y);
+
+//Handling that extra row
+floor_noOfSheets_x = floor(area_width/sheet_width);
+lastSheetPercentage_x = floor(((area_width/sheet_width)%floor_noOfSheets_x)*100);
+echo(lastSheetPercentage_x);
+
+floor_noOfSheets_y = floor(area_height/sheet_height);
+lastSheetPercentage_y = floor(((area_height/sheet_height)%floor_noOfSheets_y)*100);
+echo(lastSheetPercentage_y);
+
+for (x = [0:1:noOfSheets_x-1]) {
+    if(x&lt;noOfSheets_x-1){
+        echo(""Top iteration x - "");
+        for (y = [0:1:noOfSheets_y-1]) {
+            if(y&lt;noOfSheets_y-1){
+                perforatedSheet_surface(x, y, sheet_width, sheet_height);
+            }
+            else{
+                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);
+                echo(""Last iteration y - "", new_sheetHeight);
+                if(new_sheetHeight &gt; 0){
+                    perforatedSheet_surface(x, y, sheet_width, new_sheetHeight);
+                }
+                else{
+                    perforatedSheet_surface(x, y, sheet_width, sheet_height);
+                }
+            }
+    }
+    }
+    else{
+        new_sheetWidth = floor(o_sheet_width * lastSheetPercentage_x / 100);
+        echo(""Last iteration x - "", new_sheetWidth);
+        if(new_sheetWidth &gt; 0){
+            for (y = [0:1:noOfSheets_y-1]) {
+            if(y&lt;noOfSheets_y-1){
+                perforatedSheet_surface(x, y, new_sheetWidth, sheet_height);
+            }
+            else{
+                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);
+                echo(""Last iteration y - "", new_sheetHeight);
+                if(new_sheetHeight &gt; 0){
+                    perforatedSheet_surface(x, y, new_sheetWidth, new_sheetHeight);
+                }
+                else{
+                    perforatedSheet_surface(x, y, new_sheetWidth, sheet_height);
+                }
+            }
+    }
+        }
+        else{
+            for (y = [0:1:noOfSheets_y-1]) {
+            if(y&lt;noOfSheets_y-1){
+                perforatedSheet_surface(x, y, sheet_width, sheet_height);
+            }
+            else{
+                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);
+                echo(""Last iteration y - "", new_sheetHeight);
+                if(new_sheetHeight &gt; 0){
+                    perforatedSheet_surface(x, y, sheet_width, new_sheetHeight);
+                }
+                else{
+                    perforatedSheet_surface(x, y, sheet_width, sheet_height);
+                }
+            }
+    }
+        }
+    }
+}
+"]</InArgument>
+                </uiisi:OperationEntityField.ArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+                <uiisi:OperationEntityField.Value>
+                  <VisualBasicValue x:TypeArguments="x:String" xml:space="preserve">["Please give the same static constant code below without any change
+
+// Sheet Parameters
+sheet_width = 24;
+sheet_height = 24;
+o_sheet_width = sheet_width;
+o_sheet_height = sheet_height;
+hole_diameter = 1.27;
+hole_spacing = 3;
+outline_thickness = 1;
+
+//Area Parameters
+area_width = 130;
+area_height = 86;
+
+// Reusable core logic function to create a perforated sheet hole
+module perforatedSheet_hole() {
+    for (x = [0:hole_spacing:sheet_width]) {
+        for (y = [0:hole_spacing:sheet_height]) {
+            translate([x, y]) {
+                color(""black"") {
+                    circle(hole_diameter/2);
+                }
+            }
+        }
+    }
+}
+
+// Reusable core logic function to create a perforated sheet surface
+module perforatedSheet_surface(x, y, sheet_width, sheet_height) {
+    translate([o_sheet_width*x, o_sheet_height*y, 0]){
+    difference() {
+        // Create a sheet outline
+        echo(sheet_width, sheet_height);
+        square([sheet_width, sheet_height]);
+        
+        // Punch holes into the sheet
+        color(""grey"") {
+            perforatedSheet_hole();
+        }
+    }
+}
+}
+
+//Main driver
+noOfSheets_x = ceil(area_width/sheet_width);
+noOfSheets_y = ceil(area_height/sheet_height); 
+
+echo(noOfSheets_x);
+echo(noOfSheets_y);
+
+//Handling that extra row
+floor_noOfSheets_x = floor(area_width/sheet_width);
+lastSheetPercentage_x = floor(((area_width/sheet_width)%floor_noOfSheets_x)*100);
+echo(lastSheetPercentage_x);
+
+floor_noOfSheets_y = floor(area_height/sheet_height);
+lastSheetPercentage_y = floor(((area_height/sheet_height)%floor_noOfSheets_y)*100);
+echo(lastSheetPercentage_y);
+
+for (x = [0:1:noOfSheets_x-1]) {
+    if(x&lt;noOfSheets_x-1){
+        echo(""Top iteration x - "");
+        for (y = [0:1:noOfSheets_y-1]) {
+            if(y&lt;noOfSheets_y-1){
+                perforatedSheet_surface(x, y, sheet_width, sheet_height);
+            }
+            else{
+                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);
+                echo(""Last iteration y - "", new_sheetHeight);
+                if(new_sheetHeight &gt; 0){
+                    perforatedSheet_surface(x, y, sheet_width, new_sheetHeight);
+                }
+                else{
+                    perforatedSheet_surface(x, y, sheet_width, sheet_height);
+                }
+            }
+    }
+    }
+    else{
+        new_sheetWidth = floor(o_sheet_width * lastSheetPercentage_x / 100);
+        echo(""Last iteration x - "", new_sheetWidth);
+        if(new_sheetWidth &gt; 0){
+            for (y = [0:1:noOfSheets_y-1]) {
+            if(y&lt;noOfSheets_y-1){
+                perforatedSheet_surface(x, y, new_sheetWidth, sheet_height);
+            }
+            else{
+                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);
+                echo(""Last iteration y - "", new_sheetHeight);
+                if(new_sheetHeight &gt; 0){
+                    perforatedSheet_surface(x, y, new_sheetWidth, new_sheetHeight);
+                }
+                else{
+                    perforatedSheet_surface(x, y, new_sheetWidth, sheet_height);
+                }
+            }
+    }
+        }
+        else{
+            for (y = [0:1:noOfSheets_y-1]) {
+            if(y&lt;noOfSheets_y-1){
+                perforatedSheet_surface(x, y, sheet_width, sheet_height);
+            }
+            else{
+                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);
+                echo(""Last iteration y - "", new_sheetHeight);
+                if(new_sheetHeight &gt; 0){
+                    perforatedSheet_surface(x, y, sheet_width, new_sheetHeight);
+                }
+                else{
+                    perforatedSheet_surface(x, y, sheet_width, sheet_height);
+                }
+            }
+    }
+        }
+    }
+}
+"]</VisualBasicValue>
+                </uiisi:OperationEntityField.Value>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID17" ArgumentDirection="In" ArgumentType="x:String" DataType="String" DefaultValue="gpt-4" Description="The large language model (LLM) to use for the chat completion. Defaults to gpt-4" DisplayName="Model Name" FormDataType="ExpressionTextBox" InArgumentValue="gpt-3.5-turbo" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.model" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
+                  <InArgument x:TypeArguments="x:String">gpt-3.5-turbo</InArgument>
+                </uiisi:OperationEntityField.ArgumentValue>
+                <uiisi:OperationEntityField.EnumValues>
+                  <scg:List x:TypeArguments="x:String" Capacity="2">
+                    <x:String>gpt-4</x:String>
+                    <x:String>gpt-3.5-turbo</x:String>
+                  </scg:List>
+                </uiisi:OperationEntityField.EnumValues>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+                <uiisi:OperationEntityField.Value>
+                  <Literal x:TypeArguments="x:String">gpt-3.5-turbo</Literal>
+                </uiisi:OperationEntityField.Value>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Int32)" ArgumentValue="{x:Reference __ReferenceID1}" Value="{x:Reference __ReferenceID0}" x:Name="__ReferenceID18" ArgumentDirection="In" ArgumentType="s:Nullable(x:Int32)" DataType="Int32" DefaultValue="1920" Description="The maximum number of tokens allowed for the prompt and generated answer. Fewer tokens are less expensive. Defaults to 3840." DisplayName="Max Tokens" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.max_tokens" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.InArgumentValue>
+                  <InArgument x:TypeArguments="s:Nullable(x:Int32)" x:Name="__ReferenceID1">
+                    <Literal x:TypeArguments="s:Nullable(x:Int32)" x:Name="__ReferenceID0" Value="1920" />
+                  </InArgument>
+                </uiisi:OperationEntityField.InArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Int32)" ArgumentValue="{x:Reference __ReferenceID3}" Value="{x:Reference __ReferenceID2}" x:Name="__ReferenceID19" ArgumentDirection="In" ArgumentType="s:Nullable(x:Int32)" DataType="Int32" DefaultValue="1" Description="A number of at least 1.  This determines how many completion choices the AI will return. Defaults to 1." DisplayName="N" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.n" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.InArgumentValue>
+                  <InArgument x:TypeArguments="s:Nullable(x:Int32)" x:Name="__ReferenceID3">
+                    <Literal x:TypeArguments="s:Nullable(x:Int32)" x:Name="__ReferenceID2" Value="1" />
+                  </InArgument>
+                </uiisi:OperationEntityField.InArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Double)" ArgumentValue="{x:Reference __ReferenceID5}" Value="{x:Reference __ReferenceID4}" x:Name="__ReferenceID20" ArgumentDirection="In" ArgumentType="s:Nullable(x:Double)" DataType="Double" DefaultValue="1" Description="⌘ ⌥ K&#xA;A number between 0 and 2.  Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. Defaults to 1." DisplayName="Temperature" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.temperature" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.InArgumentValue>
+                  <InArgument x:TypeArguments="s:Nullable(x:Double)" x:Name="__ReferenceID5">
+                    <Literal x:TypeArguments="s:Nullable(x:Double)" x:Name="__ReferenceID4" Value="1" />
+                  </InArgument>
+                </uiisi:OperationEntityField.InArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Double)" ArgumentValue="{x:Reference __ReferenceID7}" Value="{x:Reference __ReferenceID6}" x:Name="__ReferenceID21" ArgumentDirection="In" ArgumentType="s:Nullable(x:Double)" DataType="Double" DefaultValue="1" Description="A number between 0 and 1.  The lower the number, the fewer tokens are considered. Defaults to 1." DisplayName="Top P" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.top_p" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.InArgumentValue>
+                  <InArgument x:TypeArguments="s:Nullable(x:Double)" x:Name="__ReferenceID7">
+                    <Literal x:TypeArguments="s:Nullable(x:Double)" x:Name="__ReferenceID6" Value="1" />
+                  </InArgument>
+                </uiisi:OperationEntityField.InArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Boolean)" ArgumentValue="{x:Reference __ReferenceID9}" Value="{x:Reference __ReferenceID8}" x:Name="__ReferenceID22" ArgumentDirection="In" ArgumentType="s:Nullable(x:Boolean)" DataType="Boolean" DefaultValue="false" Description="Whether to stream back partial progress. If set, tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a data: [DONE] message. Defaults to false." DisplayName="Stream" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.stream" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.InArgumentValue>
+                  <InArgument x:TypeArguments="s:Nullable(x:Boolean)" x:Name="__ReferenceID9">
+                    <Literal x:TypeArguments="s:Nullable(x:Boolean)" x:Name="__ReferenceID8" Value="False" />
+                  </InArgument>
+                </uiisi:OperationEntityField.InArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID23" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence. Defaults to null." DisplayName="Stop" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.stop" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Double)" ArgumentValue="{x:Reference __ReferenceID11}" Value="{x:Reference __ReferenceID10}" x:Name="__ReferenceID24" ArgumentDirection="In" ArgumentType="s:Nullable(x:Double)" DataType="Double" DefaultValue="0" Description="Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. Defaults to 0." DisplayName="Presence Penalty" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.presence_penalty" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.InArgumentValue>
+                  <InArgument x:TypeArguments="s:Nullable(x:Double)" x:Name="__ReferenceID11">
+                    <Literal x:TypeArguments="s:Nullable(x:Double)" x:Name="__ReferenceID10" Value="0" />
+                  </InArgument>
+                </uiisi:OperationEntityField.InArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Double)" ArgumentValue="{x:Reference __ReferenceID13}" Value="{x:Reference __ReferenceID12}" x:Name="__ReferenceID25" ArgumentDirection="In" ArgumentType="s:Nullable(x:Double)" DataType="Double" DefaultValue="0" Description="Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. Defaults to 0." DisplayName="Frequency Penalty" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.frequency_penalty" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.InArgumentValue>
+                  <InArgument x:TypeArguments="s:Nullable(x:Double)" x:Name="__ReferenceID13">
+                    <Literal x:TypeArguments="s:Nullable(x:Double)" x:Name="__ReferenceID12" Value="0" />
+                  </InArgument>
+                </uiisi:OperationEntityField.InArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID26" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. Defaults to null." DisplayName="User" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.user" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID27" ArgumentDirection="Out" ArgumentType="x:String" DataType="String" Description="The text for the top choice generated by the AI" DisplayName="Top Generated Text" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="Response.text" OutArgumentValue="[GPT_Script]" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
+                  <OutArgument x:TypeArguments="x:String">[GPT_Script]</OutArgument>
+                </uiisi:OperationEntityField.ArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+                <uiisi:OperationEntityField.Value>
+                  <VisualBasicReference x:TypeArguments="x:String">[GPT_Script]</VisualBasicReference>
+                </uiisi:OperationEntityField.Value>
+              </uiisi:OperationEntityField>
+            </scg:List>
+          </uibi:BusinessEntity.AllFields>
+          <uibi:BusinessEntity.EntityMetadata>
+            <uibi:EntityMetadata Metadata="{x:Reference __ReferenceID14}" DisplayName="Generate Chat Completion" EligibleOperations="1" IsCustomEntity="False" Name="generateChatCompletion" />
+          </uibi:BusinessEntity.EntityMetadata>
+          <uibi:BusinessEntity.Metadata>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID14">
+              <x:String x:Key="Object">generateChatCompletion</x:String>
+              <x:String x:Key="Client">UiPath.OpenAI.IntegrationService.Client.GenerateChatCompletionAPIClient</x:String>
+              <x:String x:Key="Operation">CreateGenerateChatCompletion</x:String>
+              <x:String x:Key="Path">/generateChatCompletion</x:String>
+            </scg:Dictionary>
+          </uibi:BusinessEntity.Metadata>
+          <uibi:BusinessEntity.SelectedFields>
+            <scg:List x:TypeArguments="uibi:EntityField" Capacity="16">
+              <x:Reference>__ReferenceID15</x:Reference>
+              <x:Reference>__ReferenceID16</x:Reference>
+              <x:Reference>__ReferenceID17</x:Reference>
+              <x:Reference>__ReferenceID18</x:Reference>
+              <x:Reference>__ReferenceID19</x:Reference>
+              <x:Reference>__ReferenceID20</x:Reference>
+              <x:Reference>__ReferenceID21</x:Reference>
+              <x:Reference>__ReferenceID22</x:Reference>
+              <x:Reference>__ReferenceID23</x:Reference>
+              <x:Reference>__ReferenceID24</x:Reference>
+              <x:Reference>__ReferenceID25</x:Reference>
+              <x:Reference>__ReferenceID26</x:Reference>
+              <x:Reference>__ReferenceID27</x:Reference>
+              <x:Reference>__ReferenceID28</x:Reference>
+            </scg:List>
+          </uibi:BusinessEntity.SelectedFields>
+          <uibi:BusinessEntity.TelemetryProperties>
+            <scg:Dictionary x:TypeArguments="uibi:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+          </uibi:BusinessEntity.TelemetryProperties>
+        </uibi:BusinessEntity>
+      </uoia:GenerateChatCompletion.BusinessEntity>
+      <uoia:GenerateChatCompletion.CachedLookupValues>
+        <scg:Dictionary x:TypeArguments="x:String, scg:List(uiisi:LookupValue)" />
+      </uoia:GenerateChatCompletion.CachedLookupValues>
+      <uoia:GenerateChatCompletion.DesignConnectionRequest>
+        <uiisi:ConnectionParameters AuthType="ElementInstance" ConnectionId="30b91c08-d090-4659-a239-f49b394efb26" ConnectionName="OpenAI" ConnectorKey="uipath-openai-openai">
+          <uiisi:ConnectionParameters.TelemetryInfo>
+            <uiisi:TelemetryInfo ActivityPack="UiPath.OpenAI.IntegrationService.Activities" ActivityPackVersion="6.1.0" Source="StudioDesktop" />
+          </uiisi:ConnectionParameters.TelemetryInfo>
+        </uiisi:ConnectionParameters>
+      </uoia:GenerateChatCompletion.DesignConnectionRequest>
+      <uoia:GenerateChatCompletion.SelectedFields>
+        <scg:List x:TypeArguments="uibi:EntityField" Capacity="14">
+          <x:Reference>__ReferenceID15</x:Reference>
+          <x:Reference>__ReferenceID16</x:Reference>
+          <x:Reference>__ReferenceID17</x:Reference>
+          <x:Reference>__ReferenceID18</x:Reference>
+          <x:Reference>__ReferenceID19</x:Reference>
+          <x:Reference>__ReferenceID20</x:Reference>
+          <x:Reference>__ReferenceID21</x:Reference>
+          <x:Reference>__ReferenceID22</x:Reference>
+          <x:Reference>__ReferenceID23</x:Reference>
+          <x:Reference>__ReferenceID24</x:Reference>
+          <x:Reference>__ReferenceID25</x:Reference>
+          <x:Reference>__ReferenceID26</x:Reference>
+          <x:Reference>__ReferenceID27</x:Reference>
+          <x:Reference>__ReferenceID28</x:Reference>
+        </scg:List>
+      </uoia:GenerateChatCompletion.SelectedFields>
+      <uoia:GenerateChatCompletion.TelemetryProperties>
+        <scg:Dictionary x:TypeArguments="uibi:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+      </uoia:GenerateChatCompletion.TelemetryProperties>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uoia:GenerateChatCompletion>
+    <Assign sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[GPT_Script]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">["// Sheet Parameters
+sheet_width = 24;
+sheet_height = 24;
+o_sheet_width = sheet_width;
+o_sheet_height = sheet_height;
+hole_diameter = 1.27;
+hole_spacing = 3;
+outline_thickness = 1;
+
+//Area Parameters
+area_width = "+in_dict_AreaParams("Area dimensions").ToString.Trim.Split("x"c).First+";
+area_height = "+in_dict_AreaParams("Area dimensions").ToString.Trim.Split("x"c).Last+";
+
+// Reusable core logic function to create a perforated sheet hole
+module perforatedSheet_hole() {
+    for (x = [0:hole_spacing:sheet_width]) {
+        for (y = [0:hole_spacing:sheet_height]) {
+            translate([x, y]) {
+                color(""black"") {
+                    circle(hole_diameter/2);
+                }
+            }
+        }
+    }
+}
+
+// Reusable core logic function to create a perforated sheet surface
+module perforatedSheet_surface(x, y, sheet_width, sheet_height) {
+    translate([o_sheet_width*x, o_sheet_height*y, 0]){
+    difference() {
+        // Create a sheet outline
+        echo(sheet_width, sheet_height);
+        square([sheet_width, sheet_height]);
+        
+        // Punch holes into the sheet
+        color(""grey"") {
+            perforatedSheet_hole();
+        }
+    }
+}
+}
+
+//Main driver
+noOfSheets_x = ceil(area_width/sheet_width);
+noOfSheets_y = ceil(area_height/sheet_height); 
+
+echo(noOfSheets_x);
+echo(noOfSheets_y);
+
+//Handling that extra row
+floor_noOfSheets_x = floor(area_width/sheet_width);
+lastSheetPercentage_x = floor(((area_width/sheet_width)%floor_noOfSheets_x)*100);
+echo(lastSheetPercentage_x);
+
+floor_noOfSheets_y = floor(area_height/sheet_height);
+lastSheetPercentage_y = floor(((area_height/sheet_height)%floor_noOfSheets_y)*100);
+echo(lastSheetPercentage_y);
+
+for (x = [0:1:noOfSheets_x-1]) {
+    if(x&lt;noOfSheets_x-1){
+        echo(""Top iteration x - "");
+        for (y = [0:1:noOfSheets_y-1]) {
+            if(y&lt;noOfSheets_y-1){
+                perforatedSheet_surface(x, y, sheet_width, sheet_height);
+            }
+            else{
+                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);
+                echo(""Last iteration y - "", new_sheetHeight);
+                if(new_sheetHeight &gt; 0){
+                    perforatedSheet_surface(x, y, sheet_width, new_sheetHeight);
+                }
+                else{
+                    perforatedSheet_surface(x, y, sheet_width, sheet_height);
+                }
+            }
+    }
+    }
+    else{
+        new_sheetWidth = floor(o_sheet_width * lastSheetPercentage_x / 100);
+        echo(""Last iteration x - "", new_sheetWidth);
+        if(new_sheetWidth &gt; 0){
+            for (y = [0:1:noOfSheets_y-1]) {
+            if(y&lt;noOfSheets_y-1){
+                perforatedSheet_surface(x, y, new_sheetWidth, sheet_height);
+            }
+            else{
+                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);
+                echo(""Last iteration y - "", new_sheetHeight);
+                if(new_sheetHeight &gt; 0){
+                    perforatedSheet_surface(x, y, new_sheetWidth, new_sheetHeight);
+                }
+                else{
+                    perforatedSheet_surface(x, y, new_sheetWidth, sheet_height);
+                }
+            }
+    }
+        }
+        else{
+            for (y = [0:1:noOfSheets_y-1]) {
+            if(y&lt;noOfSheets_y-1){
+                perforatedSheet_surface(x, y, sheet_width, sheet_height);
+            }
+            else{
+                new_sheetHeight = floor(o_sheet_height * lastSheetPercentage_y / 100);
+                echo(""Last iteration y - "", new_sheetHeight);
+                if(new_sheetHeight &gt; 0){
+                    perforatedSheet_surface(x, y, sheet_width, new_sheetHeight);
+                }
+                else{
+                    perforatedSheet_surface(x, y, sheet_width, sheet_height);
+                }
+            }
+    }
+        }
+    }
+}
+"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="[SCAD_File]" sap:VirtualizedContainerService.HintSize="434,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[GPT_Script]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Rendering the perforated sheet...&quot;]" />
+    <ui:InvokePowerShell x:TypeArguments="sma:PSObject" ContinueOnError="{x:Null}" CommandText="[&quot;Start-Process -FilePath &quot;&quot;C:\Program Files\OpenSCAD\openscad.exe&quot;&quot; -ArgumentList &quot;&quot;-o&quot;&quot;, &quot;&quot;&quot; + CSG_PrintFile + &quot;&quot;&quot;, &quot;&quot;&quot; + SCAD_File + &quot;&quot;&quot; -Wait&quot;]" DisplayName="Invoke Power Shell" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_1" IsScript="True">
+      <ui:InvokePowerShell.PowerShellVariables>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokePowerShell.PowerShellVariables>
+    </ui:InvokePowerShell>
+  </Sequence>
+</Activity>
