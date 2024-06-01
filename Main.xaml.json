@@ -1,0 +1,33 @@
+{
+  "DisplayName": "Main",
+  "Tooltip": null,
+  "HelpLink": null,
+  "Color": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "GmailApplicationCard_1_Connection0",
+      "DisplayName": "GmailApplicationCard_1_Connection",
+      "Category": null,
+      "Tooltip": "Use Gmail",
+      "Placeholder": null,
+      "Widget": "Connection",
+      "IsRequired": true,
+      "IsPrincipal": true,
+      "ArgumentType": 1,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "Logic_Mail_ExtractProductDataFromEmail_xaml__GenerateChatCompletion_1_Connection0",
+      "DisplayName": "GenerateChatCompletion_1_uipath-openai-openai",
+      "Category": null,
+      "Tooltip": "Generate Chat Completion",
+      "Placeholder": null,
+      "Widget": "Connection",
+      "IsRequired": true,
+      "IsPrincipal": true,
+      "ArgumentType": 1,
+      "DataSourceItems": null
+    }
+  ]
+}
