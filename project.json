@@ -4,14 +4,14 @@
   "description": "Fabricating products with UiPath starting from Order processing, CAD design, Triggering 3D Printing, Initiating Delivery.",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.22.2]",
-    "UiPath.Mail.Activities": "[1.21.1]",
-    "UiPath.MLServices.Activities": "[2.0.0]",
+    "UiPath.Excel.Activities": "[2.23.3-preview]",
+    "UiPath.Mail.Activities": "[1.23.1]",
+    "UiPath.MLServices.Activities": "[2.0.1]",
     "UiPath.OpenAI.IntegrationService.Activities": "[6.1.0]",
-    "UiPath.System.Activities": "[23.10.2]",
-    "UiPath.Testing.Activities": "[23.10.0]",
-    "UiPath.UIAutomation.Activities": "[23.10.3]",
-    "UiPath.WebAPI.Activities": "[1.18.0]"
+    "UiPath.System.Activities": "[24.5.0-preview]",
+    "UiPath.Testing.Activities": "[24.4.0-preview]",
+    "UiPath.UIAutomation.Activities": "[24.4.2-preview]",
+    "UiPath.WebAPI.Activities": "[1.20.1]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -47,7 +47,6 @@
       "ignoredFiles": []
     },
     "fileInfoCollection": [],
-    "modernBehavior": true,
     "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
